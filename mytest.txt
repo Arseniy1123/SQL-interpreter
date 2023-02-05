@@ -1,0 +1,37 @@
+CREATE TABLE Cargo_Airline (Airline TEXT(30), Fleet TEXT(30), In_exploitation LONG, On_board_number TEXT(30)) #comment
+
+INSERT INTO Cargo_Airline ('Volga-Dnepr', 'An-124', 1990, 'RA-82043')
+INSERT INTO Cargo_Airline ('Volga-Dnepr', 'Il-76', 2005, 'RA-76950')
+INSERT INTO Cargo_Airline ('Volga-Dnepr', 'An-124', 1994, 'RA-82074')
+
+INSERT INTO Cargo_Airline ('Aviacon_Zitotrans', 'Il-76', 1994, 'RA-76842')
+INSERT INTO Cargo_Airline ('Aviacon_Zitotrans', 'Il-76', 1986, 'RA-78765')
+INSERT INTO Cargo_Airline ('Aviacon_Zitotrans', 'Il-76', 1989, 'RA-76846')
+
+INSERT INTO Cargo_Airline ('Abakan_Air', 'Il-76', 1985, 'RA-76463')
+INSERT INTO Cargo_Airline ('Abakan_Air', 'Mi-26', 1989, 'RA-06270')
+INSERT INTO Cargo_Airline ('Abakan_Air', 'Mi-8', 1991, 'RA-25107')
+
+INSERT INTO Cargo_Airline ('Atran', 'Boeing-737', 2002, 'VQ-BFS')
+INSERT INTO Cargo_Airline ('Atran', 'An-12', 1994, 'RA-98118')
+INSERT INTO Cargo_Airline ('Atran', 'An-26', 1995, 'RA-26595')
+
+INSERT INTO Cargo_Airline ('Antonov_Airlines', 'An-225', 1993, 'UR-82060')
+INSERT INTO Cargo_Airline ('Antonov_Airlines', 'An-124', 1986, 'UR-82009')
+INSERT INTO Cargo_Airline ('Antonov_Airlines', 'An-22', 1974, 'UR-09307')
+
+INSERT INTO Cargo_Airline ('Silk_Way', 'Il-76', 2005, '4K-AZ100')
+INSERT INTO Cargo_Airline ('Silk_Way', 'Mi-8', 2009, '4K-AZ71')
+INSERT INTO Cargo_Airline ('Silk_Way', 'An-12', 1986, '4K-AZ23')
+
+SELECT * FROM Cargo_Airline WHERE ALL
+SELECT Airline, Fleet FROM Cargo_Airline WHERE In_exploitation IN(1994,2005,1986)
+SELECT On_board_number FROM Cargo_Airline WHERE Fleet = 'Mi-8'
+SELECT Fleet FROM Cargo_Airline WHERE ALL
+SELECT Fleet, On_board_number FROM Cargo_Airline WHERE (In_exploitation > 1990) AND (Fleet > 'A')
+UPDATE Cargo_Airline SET In_exploitation = In_exploitation + 1 WHERE ALL
+SELECT * FROM Cargo_Airline WHERE ALL
+DELETE FROM Cargo_Airline WHERE (In_exploitation > 1999)
+SELECT * FROM Cargo_Airline WHERE ALL
+DROP TABLE Cargo_Airline
+EXIT
